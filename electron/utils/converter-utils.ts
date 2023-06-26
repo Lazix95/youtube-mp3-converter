@@ -5,7 +5,9 @@ const ffmpeg = require('fluent-ffmpeg');
 const ffmpegStatic = require('ffmpeg-static');
 import path from 'path';
 import fs from 'fs';
-const ffmpegPath = process.env.NODE_ENV === 'development' ? ffmpegStatic : path.join(__dirname, '..', '..', 'ffmpeg');
+
+const platformPath = process.platform === 'win32' ? path.join(__dirname, '..', '..', 'app.asar.unpacked', 'node_modules', 'ffmpeg-static', 'ffmpeg') : path.join(__dirname, '..', '..', 'ffmpeg');
+const ffmpegPath = process.env.NODE_ENV === 'development' ? ffmpegStatic : platformPath;
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 
