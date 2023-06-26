@@ -8,9 +8,20 @@
   directories: {
     output: 'release/${version}',
   },
-  files: ['dist-electron', 'dist', 'node_modules/**/*'],
+  files: [
+    'dist-electron',
+    'dist',
+    {
+      from: './node_modules/ffmpeg-static/ffmpeg',
+      to: './ffmpeg',
+    },
+  ],
   extraResources: [
-    'node_modules/ffmpeg-static/**/*', // Include ffmpeg-static
+    {
+      from: './node_modules/ffmpeg-static/ffmpeg',
+      to: './ffmpeg',
+      filter: ['**/*'],
+    },
   ],
   mac: {
     icon: 'public/youtubeIcon256.icns',

@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 import ytdl from 'ytdl-core';
-// import ffmpeg from "fluent-ffmpeg";
-// import ffmpegPath from "ffmpeg-static";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const ffmpeg = require('fluent-ffmpeg');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ffmpegPath = require('ffmpeg-static');
+const ffmpegStatic = require('ffmpeg-static');
 import path from 'path';
 import fs from 'fs';
+const ffmpegPath = process.env.NODE_ENV === 'development' ? ffmpegStatic : path.join(__dirname, '..', '..', 'ffmpeg');
 
-ffmpeg.setFfmpegPath(ffmpegPath as string);
+ffmpeg.setFfmpegPath(ffmpegPath);
+
+console.log(ffmpegPath);
 
 export async function getAudioFilePath(userChosenFolderPath: string, videoUrl: string) {
   const videoInfo = await ytdl.getInfo(videoUrl);
