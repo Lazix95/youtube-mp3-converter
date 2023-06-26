@@ -9,6 +9,9 @@
     output: 'release/${version}',
   },
   files: ['dist-electron', 'dist', 'node_modules/**/*'],
+  extraResources: [
+    'node_modules/ffmpeg-static/**/*', // Include ffmpeg-static
+  ],
   mac: {
     icon: 'public/youtubeIcon256.icns',
     artifactName: '${productName}_${version}.${ext}',
