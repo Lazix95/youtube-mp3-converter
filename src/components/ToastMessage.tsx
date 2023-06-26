@@ -22,7 +22,7 @@ export const ToastMessage = forwardRef<ToastMessageRef, ToastMessageProps>(({ du
       setOpen(true);
     },
 
-    error: () => {
+    error: (message) => {
       setMessage(message);
       setSeverity('error');
       setOpen(true);

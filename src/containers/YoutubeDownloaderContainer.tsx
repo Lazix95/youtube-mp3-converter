@@ -61,7 +61,8 @@ export function YoutubeDownloaderContainer() {
       setIsSuccess(true);
       setIsLoading(false);
     } catch (err) {
-      toastMessageRef.current?.error('Error');
+      console.log(err);
+      toastMessageRef.current?.error(`Error - ${err}`);
       setIsLoading(false);
     }
   }
