@@ -15,7 +15,7 @@
     target: ['dmg'],
   },
   win: {
-    icon: 'public/youtubeIcon256.icns',
+    icon: 'public/youtubeIcon256.ico',
     target: [
       {
         target: 'nsis',
