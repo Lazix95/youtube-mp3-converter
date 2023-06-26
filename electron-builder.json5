@@ -10,12 +10,12 @@
   },
   files: ['dist-electron', 'dist'],
   mac: {
-    icon: 'public/youtubeIcon.icns',
+    icon: 'public/youtubeIcon256.icns',
     artifactName: '${productName}_${version}.${ext}',
     target: ['dmg'],
   },
   win: {
-    icon: 'public/youtubeIcon.icns',
+    icon: 'public/youtubeIcon256.icns',
     target: [
       {
         target: 'nsis',
