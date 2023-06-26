@@ -12,9 +12,13 @@ ffmpeg.setFfmpegPath(ffmpegPath as string);
 
 export async function getAudioFilePath(userChosenFolderPath: string, videoUrl: string) {
   const videoInfo = await ytdl.getInfo(videoUrl);
-  const rootDir = path.resolve('/');
+  let sanitizedFolderPath = userChosenFolderPath;
 
-  const sanitizedFolderPath = path.join(rootDir, userChosenFolderPath);
+  if (process.platform === 'darwin') {
+    const rootDir = path.resolve('/');
+    sanitizedFolderPath = path.join(rootDir, userChosenFolderPath);
+  }
+
   const songName = videoInfo.videoDetails.title.replace(/[^\w\s]/gi, ''); // Remove special characters from the song name
   const audioFileName = `${songName}.mp3`;
   const audioFilePath = path.join(sanitizedFolderPath, audioFileName);
