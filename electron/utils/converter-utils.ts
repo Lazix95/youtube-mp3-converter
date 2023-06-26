@@ -41,6 +41,7 @@ export async function convertVideoToMp3(audioFilePath: string, videoUrl: string)
       .audioFrequency(44100)
       .format('mp3')
       .on('error', (error: unknown) => {
+        console.log(error);
         reject(`Failed to convert video to MP3: ${error}`);
       })
       .save(audioFilePath)
