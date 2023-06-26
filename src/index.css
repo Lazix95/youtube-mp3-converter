@@ -1,4 +1,18 @@
-@import "@fontsource/roboto/300.css";
-@import "@fontsource/roboto/400.css";
-@import "@fontsource/roboto/500.css";
-@import "@fontsource/roboto/700.css";
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+
+/* Hide scrollbars for all elements */
+body::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}

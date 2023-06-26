@@ -26,6 +26,8 @@ const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL'];
 
 function createWindow() {
   win = new BrowserWindow({
+    darkTheme: true,
+    autoHideMenuBar: true,
     icon: path.join(__dirname, 'icons', 'youtubeIcon.ico'), //path.join(process.env.PUBLIC, 'youtubeIcon.svg'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
