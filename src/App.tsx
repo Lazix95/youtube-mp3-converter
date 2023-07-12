@@ -1,19 +1,19 @@
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import { MainView } from "./views/MainView";
-import { YoutubeDownloaderContainer } from "./containers/YoutubeDownloaderContainer";
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { MainView } from './views/MainView';
+import { YoutubeDownloaderContainer } from './containers/YoutubeDownloaderContainer';
 
 const darkTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
-      main: "#FF0000", // YouTube red
+      main: '#FF0000', // YouTube red
     },
     secondary: {
-      main: "#FFFFFF", // White
+      main: '#FFFFFF', // White
     },
     background: {
-      default: "#181818", // Dark background color
-      paper: "#202020", // Dark paper color
+      default: '#0f0f0f', // Dark background color
+      paper: '#202020', // Dark paper color
     },
   },
 });

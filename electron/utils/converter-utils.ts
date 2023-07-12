@@ -11,7 +11,7 @@ const ffmpegPath = process.env.NODE_ENV === 'development' ? ffmpegStatic : platf
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 
-console.log(ffmpegPath);
+// console.log(ffmpegPath);
 
 export async function getAudioFilePath(userChosenFolderPath: string, videoUrl: string) {
   const videoInfo = await ytdl.getInfo(videoUrl);
@@ -33,13 +33,14 @@ export async function getAudioFilePath(userChosenFolderPath: string, videoUrl: s
   return audioFilePath;
 }
 
-export async function convertVideoToMp3(audioFilePath: string, videoUrl: string) {
+export async function convertVideoToMp3(audioFilePath: string, videoUrl: string, quality: 'low' | 'normal' | 'high' = 'high') {
   return new Promise((resolve, reject) => {
+    const audioQuality = quality === 'high' ? '320k' : quality === 'normal' ? '120k' : quality === 'low' ? '60k' : '320k';
     const audioStream = ytdl(videoUrl, { filter: 'audioonly' });
     ffmpeg(audioStream)
       .noVideo()
       .audioCodec('libmp3lame')
-      .audioBitrate('320k')
+      .audioBitrate(audioQuality)
       .audioChannels(2)
       .audioFrequency(44100)
       .format('mp3')
